@@ -91,6 +91,7 @@ body {
     background-color: rgba(255,255,255,.7);
     border-radius: 16px;
     box-shadow: 0 4px 4px rgba(0,0,0,.1);
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
@@ -140,34 +141,76 @@ body {
     transition: .3s;
 }
 
-.banners-item:hover {
+.banners-item.dark {
+    background: #333;
+}
+
+.banners-item.img {
+    height: 200px;
+    background-image: url(img/babor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+}
+
+.banners-item:not(.dark):hover {
     background-color: rgba(255,255,255,1);
 }
 
-.banners-item:hover span + div {
+.banners-item:not(.dark):hover span + div {
     background: #000;
     color: #fff;   
 }
 
+.banners-item.dark:hover span + div {
+    background: #fff;
+    color: #000;   
+}
+
 .banners-item > .icon {
-    width: 96px;
-    height: 96px;
+    width: 80px;
+    height: 80px;
     margin-right: 16px;
-    background-image: url(img/nab3.svg);
     background-repeat: no-repeat;
     background-size: contain;
 }
 
+.banners-item:nth-child(2) > .icon {
+    background-image: url(img/nabor.svg);
+}
+
+.banners-item:nth-child(3) > .icon {
+    background-image: url(img/gift.svg);
+}
+
+.banners-item:nth-child(4) > .icon {
+    background-image: url(img/rose.svg);
+}
+
 .banners-item > .icon + div {
     flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .banners-item span {
-    display: block;
+    flex: 1;
+
     font-size: 18px;
     line-height: 24px;
     text-align: right;
     padding: 12px 0 18px 0;
+    vertical-align: bottom;
+}
+
+.banners-item.img span {
+    padding-top: 50px;
+}
+
+.banners-item.dark span {
+    color: #fff;
 }
 
 .banners-item span + div {
@@ -177,9 +220,12 @@ body {
     width: max-content;
     border: 1px solid #000;
     border-radius: 4px;
-    margin-left: auto;
-    margin-right: 0;
     transition: .3s;
+}
+
+.banners-item.dark span + div {
+    color: #fff;
+    border: 1px solid #fff;
 }
 
 /* 400px ------------------------------------------*/
